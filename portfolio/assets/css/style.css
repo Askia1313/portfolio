@@ -137,13 +137,13 @@ body {
   height: 160px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 40px var(--color-primary), 0 0 80px var(--color-secondary);
+  box-shadow: 0 0 20px var(--color-primary), 0 0 40px var(--color-secondary);
   background: linear-gradient(135deg, #101522 60%, #00fff7 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: blur(18px);
-  animation: avatar-focus 2s ease-out forwards;
+  filter: blur(8px);
+  animation: avatar-focus 1.5s ease-out forwards;
 }
 
 .avatar {

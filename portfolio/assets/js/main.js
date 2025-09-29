@@ -20,18 +20,18 @@ const projectsData = {
                 title: "Interface Lecteur",
                 description: "Interfaces destinées aux utilisateurs/lecteurs de la bibliothèque",
                 images: [
-                    "assets/images/biblio/biblio A.png",
-                    "assets/images/biblio/biblio B.png",
-                    "assets/images/biblio/biblio1 acceuil.png"
+                    "portfolio/assets/images/biblio/biblio A.png",
+                    "portfolio/assets/images/biblio/biblio B.png",
+                    "portfolio/assets/images/biblio/biblio1_acceuil.png"
                 ]
             },
             bibliothecaire: {
                 title: "Interface Bibliothécaire",
                 description: "Interfaces d'administration pour les bibliothécaires",
                 images: [
-                    "assets/images/biblio/biblio D.png",
-                    "assets/images/biblio/biblio2.png",
-                    "assets/images/biblio/biblio4.png"
+                    "portfolio/assets/images/biblio/biblio D.png",
+                    "portfolio/assets/images/biblio/biblio2.png",
+                    "portfolio/assets/images/biblio/biblio4.png"
                 ]
             }
         },
@@ -50,10 +50,10 @@ const projectsData = {
             "Possibilité de générer de nouveaux codes de confidentialité"
         ],
         images: [
-            "assets/images/easyshare/es1.png",
-            "assets/images/easyshare/es2.png",
-            "assets/images/easyshare/es3.png",
-            "assets/images/easyshare/es4.png",
+            "portfolio/assets/images/Nouveau dossier/es1.png",
+            "portfolio/assets/images/Nouveau dossier/es2.png",
+            "portfolio/assets/images/Nouveau dossier/es3.png",
+            "portfolio/assets/images/Nouveau dossier/es4.png",
         ],
         github: "https://github.com/Askia1313/esasyshare.git",
        
@@ -73,10 +73,10 @@ const projectsData = {
             "Amélioration de la transparence et de la traçabilité"
         ],
         images: [
-            "assets/images/drh/DRH0.png",
-            "assets/images/drh/DRH1.png",
-            "assets/images/drh/DRH2.png",
-            "assets/images/drh/DRH3.png"
+            "portfolio/assets/images/drh/DRH0.png",
+            "portfolio/assets/images/drh/DRH1.png",
+            "portfolio/assets/images/drh/DRH2.png",
+            "portfolio/assets/images/drh/DRH3.png"
         ],
         github: "https://github.com/Askia1313/registre.git",
        demo: ""
@@ -94,9 +94,9 @@ const projectsData = {
             "Tableau de bord entreprise"
         ],
         images: [
-            "assets/images/recrutement/recrutement landing page.png",
-            "assets/images/recrutement/recrutement login.png",
-            "assets/images/recrutement/recrutement interface recruteur.png"
+            "portfolio/assets/images/recrutement/recrutement landing page.png",
+            "portfolio/assets/images/recrutement/recrutement login.png",
+            "portfolio/assets/images/recrutement/recrutement interface recruteur.png"
         ],
         github: "https://github.com/Askia1313/e-recrutement.git",
         demo: ""
@@ -111,15 +111,14 @@ const projectsData = {
             "Système d'alertes pour les stocks faibles",
             "Génération de rapports et statistiques",
             "Interface de tableau de bord avec graphiques",
-            "Gestion des fournisseurs et clients",
             "Historique complet des mouvements de stock",
             "Système de codes-barres pour identification rapide",
-            "Export des données en Excel/PDF"
+            "Export des données en Excel/PDF",
+            "Gestion des fournisseurs et clients"
         ],
         images: [
-            "assets/images/stock/stock1.jpg",
-            "assets/images/stock/stock2.jpg",
-
+            "portfolio/assets/images/stock/stock1.jpg",
+            "portfolio/assets/images/stock/stock2.jpg"
         ],
         github: "https://github.com/guira500/gestStock.git",
         demo: ""
@@ -237,7 +236,7 @@ window.testModal = function() {
     alert('La fonction est accessible !');
 };
 
-// Animation du loader et de l'accueil
+// Animation du loader et de l'accueil optimisée
 document.addEventListener('DOMContentLoaded', () => {
   const loader = document.querySelector('.loader');
   const loaderText = document.querySelector('.loader-text');
@@ -245,45 +244,67 @@ document.addEventListener('DOMContentLoaded', () => {
   let index = 0;
 
   const writeText = () => {
-    loaderText.textContent = text.slice(0, index);
-    index++;
-    
-    if (index <= text.length) {
-      setTimeout(writeText, 200);
-    } else {
-      setTimeout(() => {
-        gsap.to(loader, {
-          opacity: 0,
-          duration: 1,
-          onComplete: () => {
-            loader.style.display = 'none';
-            initHomeAnimations();
+    if (loaderText) {
+      loaderText.textContent = text.slice(0, index);
+      index++;
+      
+      if (index <= text.length) {
+        setTimeout(writeText, 150); // Réduit de 200ms à 150ms
+      } else {
+        setTimeout(() => {
+          if (typeof gsap !== 'undefined') {
+            gsap.to(loader, {
+              opacity: 0,
+              duration: 0.8, // Réduit de 1s à 0.8s
+              onComplete: () => {
+                if (loader) loader.style.display = 'none';
+                initHomeAnimations();
+              }
+            });
+          } else {
+            // Fallback si GSAP n'est pas chargé
+            loader.style.opacity = '0';
+            setTimeout(() => {
+              if (loader) loader.style.display = 'none';
+              initHomeAnimations();
+            }, 800);
           }
-        });
-      }, 1000);
+        }, 500); // Réduit de 1000ms à 500ms
+      }
     }
   };
 
   writeText();
 });
 
-// Animations de la page d'accueil
+// Animations de la page d'accueil optimisées
 function initHomeAnimations() {
-  // Animation du contenu d'accueil
-  gsap.fromTo('.home-content', 
-    {opacity: 0, y: 60}, 
-    {opacity: 1, y: 0, duration: 1.2, ease: 'power3.out'}
-  );
+  if (typeof gsap !== 'undefined') {
+    // Animation du contenu d'accueil
+    gsap.fromTo('.home-content', 
+      {opacity: 0, y: 30}, // Réduit de y: 60 à y: 30
+      {opacity: 1, y: 0, duration: 0.8, ease: 'power2.out'} // Réduit durée et ease
+    );
+  } else {
+    // Fallback CSS
+    const homeContent = document.querySelector('.home-content');
+    if (homeContent) {
+      homeContent.style.opacity = '1';
+      homeContent.style.transform = 'translateY(0)';
+    }
+  }
 
-  // Animation du titre typed
-  new Typed('#typed-title', {
-    strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
-    typeSpeed: 38,
-    backSpeed: 0,
-    showCursor: false,
-    startDelay: 500,
-    loop: false
-  });
+  // Animation du titre typed optimisée
+  if (typeof Typed !== 'undefined') {
+    new Typed('#typed-title', {
+      strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
+      typeSpeed: 50, // Augmenté de 38 à 50 pour plus de rapidité
+      backSpeed: 0,
+      showCursor: false,
+      startDelay: 300, // Réduit de 500ms à 300ms
+      loop: false
+    });
+  }
 }
 
 // Animations des sections au scroll

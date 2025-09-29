@@ -241,7 +241,7 @@ window.testModal = function() {
 document.addEventListener('DOMContentLoaded', () => {
   const loader = document.querySelector('.loader');
   const loaderText = document.querySelector('.loader-text');
-  const text = 'ASKIA';
+  const text = 'KONATE Askia rachid';
   let index = 0;
 
   const writeText = () => {
@@ -277,7 +277,7 @@ function initHomeAnimations() {
 
   // Animation du titre typed
   new Typed('#typed-title', {
-    strings: ["Bonjour, je suis <span style='color:#7c3aed;'>ASKIA</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
+    strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
     typeSpeed: 38,
     backSpeed: 0,
     showCursor: false,

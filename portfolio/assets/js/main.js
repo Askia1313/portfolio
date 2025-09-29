@@ -259,41 +259,7 @@ function initHomeAnimations() {
     }
   }
 
-  // Animation du titre typed avec retry pour le déploiement
-  const titleElement = document.getElementById('typed-title');
-  if (titleElement) {
-    const initTyped = () => {
-      if (typeof Typed !== 'undefined') {
-        new Typed('#typed-title', {
-          strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
-          typeSpeed: 50,
-          backSpeed: 0,
-          showCursor: false,
-          startDelay: 300,
-          loop: false
-        });
-      } else {
-        // Retry après 500ms si Typed.js n'est pas encore chargé
-        setTimeout(() => {
-          if (typeof Typed !== 'undefined') {
-            new Typed('#typed-title', {
-              strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
-              typeSpeed: 50,
-              backSpeed: 0,
-              showCursor: false,
-              startDelay: 100,
-              loop: false
-            });
-          } else {
-            // Fallback final : affichage direct du texte
-            titleElement.innerHTML = "Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes.";
-          }
-        }, 500);
-      }
-    };
-    
-    initTyped();
-  }
+  // Plus d'animation Typed.js - texte statique dans le HTML
 }
 
 // Animations des sections au scroll simplifiées

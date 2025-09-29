@@ -50,10 +50,10 @@ const projectsData = {
             "Possibilité de générer de nouveaux codes de confidentialité"
         ],
         images: [
-            "portfolio/assets/images/Nouveau dossier/es1.png",
-            "portfolio/assets/images/Nouveau dossier/es2.png",
-            "portfolio/assets/images/Nouveau dossier/es3.png",
-            "portfolio/assets/images/Nouveau dossier/es4.png",
+            "portfolio/assets/images/easyshare/es1.png",
+            "portfolio/assets/images/easyshare/es2.png",
+            "portfolio/assets/images/easyshare/es3.png",
+            "portfolio/assets/images/easyshare/es4.png",
         ],
         github: "https://github.com/Askia1313/esasyshare.git",
        

@@ -249,13 +249,13 @@ document.addEventListener('DOMContentLoaded', () => {
       index++;
       
       if (index <= text.length) {
-        setTimeout(writeText, 150); // Réduit de 200ms à 150ms
+        setTimeout(writeText, 80); // Réduit drastiquement à 80ms
       } else {
         setTimeout(() => {
           if (typeof gsap !== 'undefined') {
             gsap.to(loader, {
               opacity: 0,
-              duration: 0.8, // Réduit de 1s à 0.8s
+              duration: 0.4, // Réduit à 0.4s
               onComplete: () => {
                 if (loader) loader.style.display = 'none';
                 initHomeAnimations();
@@ -267,9 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
               if (loader) loader.style.display = 'none';
               initHomeAnimations();
-            }, 800);
+            }, 400);
           }
-        }, 500); // Réduit de 1000ms à 500ms
+        }, 200); // Réduit drastiquement à 200ms
       }
     }
   };
@@ -307,35 +307,43 @@ function initHomeAnimations() {
   }
 }
 
-// Animations des sections au scroll
+// Animations des sections au scroll simplifiées
 function initScrollAnimations() {
-  // Animation de la section À propos
+  // Vérifier si GSAP est disponible
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    // Fallback CSS simple
+    const elements = document.querySelectorAll('.about-text, .timeline-item, .skill-category, .parcours-column, .contact-card');
+    elements.forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+    return;
+  }
+
+  // Animation simplifiée de la section À propos
   gsap.from('.about-text', {
     scrollTrigger: {
       trigger: '.about',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
+      start: 'top 85%',
+      toggleActions: 'play none none none' // Supprime reverse pour économiser
     },
     opacity: 0,
-    y: 30,
-    duration: 1
+    y: 20, // Réduit de 30 à 20
+    duration: 0.6 // Réduit de 1 à 0.6
   });
 
-  // Animation des items de la timeline (Âge, Ville, etc.)
-  const timelineItems = gsap.utils.toArray('.timeline-item');
-  timelineItems.forEach((item, index) => {
-    gsap.from(item, {
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse'
-      },
-      opacity: 0,
-      y: 20,
-      duration: 0.6,
-      delay: index * 0.15,
-      ease: 'power2.out'
-    });
+  // Animation groupée des timeline items (plus efficace)
+  gsap.from('.timeline-item', {
+    scrollTrigger: {
+      trigger: '.about',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 0,
+    y: 15,
+    duration: 0.4,
+    stagger: 0.1, // Réduit de 0.15 à 0.1
+    ease: 'power1.out' // Ease plus simple
   });
 
   // Animation des compétences

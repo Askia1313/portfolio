@@ -446,6 +446,17 @@ function initMobileMenu() {
         document.body.style.overflow = 'auto';
       }
     });
+
+    // Fermer le menu si on clique en dehors
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        if (navLinks.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      }
+    });
   }
 }
 

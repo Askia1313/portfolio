@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASKIA - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader">
+    <div class="loader-circle"></div>
+    <div class="loader-text"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="home">
+    <div class="home-content">
+      <div class="avatar-container">
+        <img src="assets/images/avatar.jpg" alt="ASKIA" class="avatar">
+      </div>
+      <h1 class="typed-title"><span id="typed-title"></span></h1>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>À propos de moi</h2>
+      <p>Développeur informatique passionné avec une solide expérience dans le développement d'applications web et logicielles. J'aime créer des solutions innovantes et efficaces qui répondent aux besoins des utilisateurs. Mes compétences couvrent un large éventail de technologies, du front-end au back-end, en passant par les bases de données et l'architecture logicielle.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Nom</h3>
+        <p>KONATE Askia Rachid</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Ville</h3>
+        <p>Koudougou, Burkina Faso</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Passion</h3>
+        <p>Développement logiciel & nouvelles technologies</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Ambition</h3>
+        <p>Créer des solutions innovantes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2>Compétences</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <i class="fab fa-html5"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-css3-alt"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-js-square"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-python"></i>
+        <span>Python</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-python"></i>
+        <span>Django</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-react"></i>
+        <span>React</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-mobile-alt"></i>
+        <span>Flutter</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-bootstrap"></i>
+        <span>Bootstrap</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-bootstrap"></i>
+        <span>React Bootstrap</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-js-square"></i>
+        <span>jQuery</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <span>PostgreSQL</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <span>MySQL</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <span>SQLite</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <span>Oracle</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-git-alt"></i>
+        <span>Git</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-npm"></i>
+        <span>npm</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-linux"></i>
+        <span>Linux</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-windows"></i>
+        <span>Windows Server</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-network-wired"></i>
+        <span>Configuration d'équipements réseaux</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcours Section -->
+  <section id="parcours" class="parcours">
+    <h2>Mon Parcours</h2>
+    <div class="parcours-container">
+      <!-- Formations -->
+      <div class="parcours-column">
+        <h3><i class="fas fa-graduation-cap"></i> Formations</h3>
+        <div class="parcours-timeline">
+          <div class="parcours-item">
+            <div class="parcours-date">6 mai 2025</div>
+            <div class="parcours-content">
+              <h4>Licence en Ingénierie des Systèmes d'Information</h4>
+              <p>École Supérieure d'Informatique - Université Nazi Boni</p>
+              <ul class="parcours-details">
+                <li>Soutenance réussie</li>
+                <li>Thème : "Réalisation d'un registre électronique du personnel au profit de la Direction des Ressources Humaines du Ministère de la Santé"</li>
+                <li>Technologies : Django, PostgreSQL</li>
+              </ul>
+              <div class="parcours-tags">
+                <span>Django</span>
+                <span>PostgreSQL</span>
+                <span>Soutenance</span>
+              </div>
+            </div>
+          </div>
+          <div class="parcours-item">
+            <div class="parcours-date">octobre 2021 - mai 2025</div>
+            <div class="parcours-content">
+              <h4>Cursus académique ESI</h4>
+              <p>École Supérieure d'Informatique - Université Nazi Boni</p>
+              <ul class="parcours-details">
+                <li>Licence 1, 2 et 3 en Informatique</li>
+                <li>Développement web et mobile</li>
+                <li>Gestion de projet</li>
+                <li>Mathématiques, Physique, Réseaux</li>
+              </ul>
+              <div class="parcours-tags">
+                <span>Web</span>
+                <span>Mobile</span>
+                <span>Réseaux</span>
+              </div>
+            </div>
+          </div>
+          <div class="parcours-item">
+            <div class="parcours-date">juillet 2021</div>
+            <div class="parcours-content">
+              <h4>Baccalauréat série D</h4>
+              <p>Lycée provincial de Koudougou</p>
+              <ul class="parcours-details">
+                <li>Mention Bien</li>
+                <li>Série D (Sciences expérimentales)</li>
+              </ul>
+              <div class="parcours-tags">
+                <span>Baccalauréat</span>
+                <span>Série D</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expériences -->
+      <div class="parcours-column">
+        <h3><i class="fas fa-briefcase"></i> Expériences</h3>
+        <div class="parcours-timeline">
+          <div class="parcours-item">
+            <div class="parcours-date">1er novembre 2024 - 1er février 2025</div>
+            <div class="parcours-content">
+              <h4>Stage Développeur</h4>
+              <p>Direction des Systèmes d'Information (DSI) du Ministère de la Santé</p>
+              <ul class="parcours-details">
+                <li>Développement d'un registre électronique du personnel</li>
+                <li>Intégration avec une base de données PostgreSQL</li>
+                <li>Gestion du personnel de santé</li>
+                <li>Technologies : Django, PostgreSQL</li>
+              </ul>
+              <div class="parcours-tags">
+                <span>Django</span>
+                <span>PostgreSQL</span>
+                <span>Gestion RH</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Projets</h2>
+    <div class="projects-grid">
+      <div class="project-card" onclick="console.log('Clic détecté!'); openProjectDetail('bibliotheque');" style="cursor: pointer;">
+        <div class="project-icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="project-content">
+          <h3>Gestion Bibliothèque</h3>
+          <p>Application web de gestion de bibliothèque avec interface admin et interface utilisateur</p>
+          <div class="project-tech">Django • SQLite • HTML • CSS • JavaScript • Bootstrap</div>
+          <div class="project-links">
+            <span class="project-link">
+              <i class="fas fa-eye"></i> Voir détails
+            </span>
+            <a href="https://github.com/Askia1313/E-biblio.git" target="_blank" class="project-link github-link">
+              <i class="fab fa-github"></i> Voir code
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" onclick="openProjectDetail('easyshare')" style="cursor: pointer;">
+        <div class="project-icon">
+          <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="project-content">
+          <h3>EaseShare - Partage de Fichiers</h3>
+          <p>Application web de partage de fichiers facile et rapide</p>
+          <div class="project-tech">Django • SQLite • HTML • CSS • JavaScript • Bootstrap</div>
+          <div class="project-links">
+            <span class="project-link">
+              <i class="fas fa-eye"></i> Voir détails
+            </span>
+            <a href="https://github.com/Askia1313/esasyshare.git" target="_blank" class="project-link github-link">
+              <i class="fab fa-github"></i> Voir code
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" onclick="openProjectDetail('gestion_personnel')" style="cursor: pointer;">
+        <div class="project-icon">
+          <i class="fas fa-users-cog"></i>
+        </div>
+        <div class="project-content">
+          <h3>Registre électronique du personnel</h3>
+          <p>Dans le cadre de mon stage au ministère de la santé, développement d'un registre électronique pour la gestion du personnel de santé</p>
+          <div class="project-tech">Django • PostgreSQL • HTML • CSS • JavaScript</div>
+          <div class="project-links">
+            <span class="project-link">
+              <i class="fas fa-eye"></i> Voir détails
+            </span>
+            <a href="https://github.com/Askia1313/registre.git" target="_blank" class="project-link github-link">
+              <i class="fab fa-github"></i> Voir code
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" onclick="openProjectDetail('e_recrutement')" style="cursor: pointer;">
+        <div class="project-icon">
+          <i class="fas fa-user-plus"></i>
+        </div>
+        <div class="project-content">
+          <h3>E-Recrutement</h3>
+          <p>Application simple de recrutement permettant de postuler rapidement à des offres d'emploi et de gérer les candidatures</p>
+          <div class="project-tech">JavaScript • API REST • CSS • HTML</div>
+          <div class="project-links">
+            <span class="project-link">
+              <i class="fas fa-eye"></i> Voir détails
+            </span>
+            <a href="https://github.com/Askia1313/e-recrutement.git" target="_blank" class="project-link github-link">
+              <i class="fab fa-github"></i> Voir code
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" onclick="openProjectDetail('gestion_stock')" style="cursor: pointer;">
+        <div class="project-icon">
+          <i class="fas fa-boxes"></i>
+        </div>
+        <div class="project-content">
+          <h3>Gestion de Stock</h3>
+          <p>Application web complète de gestion de stock avec suivi des inventaires, alertes automatiques et génération de rapports</p>
+          <div class="project-tech">Django • PostgreSQL • JavaScript • Bootstrap • Chart.js</div>
+          <div class="project-links">
+            <span class="project-link">
+              <i class="fas fa-eye"></i> Voir détails
+            </span>
+            <a href="https://github.com/guira500/gestStock.git" target="_blank" class="project-link github-link">
+              <i class="fab fa-github"></i> Voir code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contactez-moi</h2>
+    <div class="contact-container">
+      <!-- Email -->
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email</h3>
+        <a href="mailto:konateaskia1@gmail.com" class="contact-link">
+          konateaskia1@gmail.com
+        </a>
+      </div>
+
+      <!-- Téléphone 1 -->
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <h3>Téléphone</h3>
+        <a href="tel:+22665940313" class="contact-link">
+          +226 65 94 03 13
+        </a>
+      </div>
+
+      <!-- Téléphone 2 -->
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Mobile</h3>
+        <a href="tel:+22671954593" class="contact-link">
+          +226 71 95 45 93
+        </a>
+      </div>
+
+      <!-- Localisation -->
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>Localisation</h3>
+        <span class="contact-link">
+          Burkina Faso - Centre-Ouest - Koudougou
+        </span>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/askia-konate-203270385" class="contact-link" target="_blank">
+          linkedin.com/in/askia-konate
+        </a>
+      </div>
+
+      <!-- GitHub -->
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-github"></i>
+        </div>
+        <h3>GitHub</h3>
+        <a href="https://github.com/Askia1313" class="contact-link" target="_blank">
+          github.com/Askia1313
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-cta">
+      <p>Disponible pour des opportunités professionnelles et des projets passionnants</p>
+      <a href="mailto:konateaskia1@gmail.com" class="cta-button">
+        <i class="fas fa-paper-plane"></i>
+        Envoyez-moi un message
+      </a>
+    </div>
+  </section>
+
+  <!-- Modal pour les détails des projets -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modalBody">
+        <!-- Le contenu sera injecté par JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay pour le zoom d'image -->
+  <div id="imageZoomOverlay" class="image-zoom-overlay">
+    <span class="image-zoom-close">&times;</span>
+    <img id="zoomedImage" class="image-zoom-content" src="" alt="">
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html> 

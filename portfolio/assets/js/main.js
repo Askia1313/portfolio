@@ -236,45 +236,10 @@ window.testModal = function() {
     alert('La fonction est accessible !');
 };
 
-// Animation du loader et de l'accueil optimisée
+// Initialisation directe sans loader
 document.addEventListener('DOMContentLoaded', () => {
-  const loader = document.querySelector('.loader');
-  const loaderText = document.querySelector('.loader-text');
-  const text = 'KONATE Askia rachid';
-  let index = 0;
-
-  const writeText = () => {
-    if (loaderText) {
-      loaderText.textContent = text.slice(0, index);
-      index++;
-      
-      if (index <= text.length) {
-        setTimeout(writeText, 80); // Réduit drastiquement à 80ms
-      } else {
-        setTimeout(() => {
-          if (typeof gsap !== 'undefined') {
-            gsap.to(loader, {
-              opacity: 0,
-              duration: 0.4, // Réduit à 0.4s
-              onComplete: () => {
-                if (loader) loader.style.display = 'none';
-                initHomeAnimations();
-              }
-            });
-          } else {
-            // Fallback si GSAP n'est pas chargé
-            loader.style.opacity = '0';
-            setTimeout(() => {
-              if (loader) loader.style.display = 'none';
-              initHomeAnimations();
-            }, 400);
-          }
-        }, 200); // Réduit drastiquement à 200ms
-      }
-    }
-  };
-
-  writeText();
+  // Lancement immédiat des animations d'accueil
+  initHomeAnimations();
 });
 
 // Animations de la page d'accueil optimisées
@@ -294,16 +259,24 @@ function initHomeAnimations() {
     }
   }
 
-  // Animation du titre typed optimisée
-  if (typeof Typed !== 'undefined') {
-    new Typed('#typed-title', {
-      strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
-      typeSpeed: 50, // Augmenté de 38 à 50 pour plus de rapidité
-      backSpeed: 0,
-      showCursor: false,
-      startDelay: 300, // Réduit de 500ms à 300ms
-      loop: false
-    });
+  // Animation du titre typed optimisée avec fallback
+  const titleElement = document.getElementById('typed-title');
+  if (titleElement) {
+    if (typeof Typed !== 'undefined') {
+      new Typed('#typed-title', {
+        strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
+        typeSpeed: 50,
+        backSpeed: 0,
+        showCursor: false,
+        startDelay: 300,
+        loop: false
+      });
+    } else {
+      // Fallback si Typed.js n'est pas chargé
+      setTimeout(() => {
+        titleElement.innerHTML = "Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes.";
+      }, 300);
+    }
   }
 }
 

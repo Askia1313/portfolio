@@ -263,6 +263,8 @@ function initHomeAnimations() {
   const titleElement = document.getElementById('typed-title');
   if (titleElement) {
     if (typeof Typed !== 'undefined') {
+      // Vider le contenu pour l'effet de frappe
+      titleElement.innerHTML = '';
       new Typed('#typed-title', {
         strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
         typeSpeed: 50,
@@ -271,12 +273,8 @@ function initHomeAnimations() {
         startDelay: 300,
         loop: false
       });
-    } else {
-      // Fallback si Typed.js n'est pas chargé
-      setTimeout(() => {
-        titleElement.innerHTML = "Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes.";
-      }, 300);
     }
+    // Si Typed.js n'est pas disponible, le texte reste affiché depuis le HTML
   }
 }
 
@@ -411,12 +409,53 @@ function initNavbarScroll() {
   });
 }
 
+// Menu Mobile Hamburger
+function initMobileMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const navLinkItems = document.querySelectorAll('.nav-link');
+
+  if (hamburger && navLinks) {
+    // Toggle menu au clic sur hamburger
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      
+      // Empêcher le scroll quand le menu est ouvert
+      if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Fermer le menu au clic sur un lien
+    navLinkItems.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+
+    // Fermer le menu si on redimensionne vers desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+}
+
 
 // Initialisation de toutes les animations au scroll
 document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initSmoothScroll();
   initNavbarScroll();
+  initMobileMenu();
   
   // Gestion de la modal
   const modal = document.getElementById('projectModal');

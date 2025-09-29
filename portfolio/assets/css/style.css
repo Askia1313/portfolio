@@ -92,6 +92,13 @@ body {
   cursor: pointer;
   gap: 4px;
   z-index: 101;
+  padding: 5px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+  background-color: rgba(0, 255, 247, 0.1);
 }
 
 .hamburger span {

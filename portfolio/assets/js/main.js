@@ -259,22 +259,40 @@ function initHomeAnimations() {
     }
   }
 
-  // Animation du titre typed optimisée avec fallback
+  // Animation du titre typed avec retry pour le déploiement
   const titleElement = document.getElementById('typed-title');
   if (titleElement) {
-    if (typeof Typed !== 'undefined') {
-      // Vider le contenu pour l'effet de frappe
-      titleElement.innerHTML = '';
-      new Typed('#typed-title', {
-        strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
-        typeSpeed: 50,
-        backSpeed: 0,
-        showCursor: false,
-        startDelay: 300,
-        loop: false
-      });
-    }
-    // Si Typed.js n'est pas disponible, le texte reste affiché depuis le HTML
+    const initTyped = () => {
+      if (typeof Typed !== 'undefined') {
+        new Typed('#typed-title', {
+          strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
+          typeSpeed: 50,
+          backSpeed: 0,
+          showCursor: false,
+          startDelay: 300,
+          loop: false
+        });
+      } else {
+        // Retry après 500ms si Typed.js n'est pas encore chargé
+        setTimeout(() => {
+          if (typeof Typed !== 'undefined') {
+            new Typed('#typed-title', {
+              strings: ["Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes."],
+              typeSpeed: 50,
+              backSpeed: 0,
+              showCursor: false,
+              startDelay: 100,
+              loop: false
+            });
+          } else {
+            // Fallback final : affichage direct du texte
+            titleElement.innerHTML = "Bonjour, je suis <span> KONATE Askia rachid</span> – Développeur Full Stack | Créateur de solutions numériques performantes.";
+          }
+        }, 500);
+      }
+    };
+    
+    initTyped();
   }
 }
 
@@ -411,11 +429,17 @@ function initNavbarScroll() {
 
 // Menu Mobile Hamburger
 function initMobileMenu() {
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  const navLinkItems = document.querySelectorAll('.nav-link');
+  // Attendre que le DOM soit complètement chargé
+  setTimeout(() => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-link');
 
-  if (hamburger && navLinks) {
+    console.log('Hamburger found:', hamburger);
+    console.log('Nav links found:', navLinks);
+    console.log('Nav link items found:', navLinkItems.length);
+
+    if (hamburger && navLinks) {
     // Toggle menu au clic sur hamburger
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
@@ -457,7 +481,10 @@ function initMobileMenu() {
         }
       }
     });
-  }
+    } else {
+      console.error('Hamburger menu elements not found');
+    }
+  }, 100);
 }
 
 
@@ -467,6 +494,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initNavbarScroll();
   initMobileMenu();
+  
+  // Backup pour le menu hamburger si la fonction principale échoue
+  setTimeout(() => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks && !hamburger.hasAttribute('data-initialized')) {
+      hamburger.setAttribute('data-initialized', 'true');
+      
+      hamburger.onclick = function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+      };
+      
+      // Fermer au clic sur les liens
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.onclick = function() {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        };
+      });
+    }
+  }, 200);
   
   // Gestion de la modal
   const modal = document.getElementById('projectModal');

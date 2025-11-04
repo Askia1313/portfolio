@@ -122,6 +122,34 @@ const projectsData = {
         ],
         github: "https://github.com/guira500/gestStock.git",
         demo: ""
+    },
+    app_education: {
+        title: "Application Mobile Éducative 'Kalanso'",
+        description: "Application mobile complète destinée aux élèves et étudiants, regroupant des ressources pédagogiques variées : cours structurés, devoirs, exercices, questions-réponses pour l'apprentissage quotidien, QCM pour la préparation aux concours, et sujets de tests d'entrée universitaires. Cette plateforme mobile offre un accès facile et rapide à tous les outils nécessaires pour réussir son parcours scolaire et universitaire.",
+        technologies: ["Flutter", "Dart", "Firebase", "API REST", "SQLite", "Git"],
+        features: [
+            "Bibliothèque de cours organisés par matière et niveau",
+            "Gestion et suivi des devoirs avec notifications",
+            "QCM interactifs pour la préparation aux concours",
+            "Base de données de sujets de tests d'entrée universitaires",
+            "Système de progression et statistiques personnalisées",
+            "Mode hors ligne pour accéder aux contenus téléchargés",
+            "Interface intuitive et adaptée aux mobiles",
+            "Notifications push pour les nouveaux contenus",
+            "Sytème de paiement pour accéder aux contenus premium",
+            "interface administrateur pour gérer les contenus",
+            "creation de code promo",
+            "etc  "
+        ],
+        images: [
+            "portfolio/assets/images/education/edu1.jpg",
+            "portfolio/assets/images/education/edu2.jpg",
+            "portfolio/assets/images/education/edu3.jpg",
+            "portfolio/assets/images/education/edu4.jpg",
+            "portfolio/assets/images/education/edu5.jpg"
+        ],
+        github: "https://github.com/Askia1313/kalanso.git",
+        
     }
 };
 

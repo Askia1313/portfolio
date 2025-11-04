@@ -195,6 +195,8 @@ body {
   min-height: 60vh;
   z-index: 2;
   position: relative;
+  opacity: 1; /* Force l'affichage */
+  visibility: visible;
 }
 
 .avatar-container {
@@ -645,12 +647,13 @@ body {
 }
 
 .image-zoom-content {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 95%;
+  max-height: 95%;
   border-radius: 10px;
   box-shadow: 0 20px 60px rgba(0, 255, 247, 0.3);
   border: 2px solid var(--color-primary);
   cursor: default;
+  object-fit: contain;
 }
 
 .image-zoom-close {
@@ -1191,8 +1194,8 @@ body {
 
 .project-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
   margin-bottom: 30px;
 }
 
@@ -1205,8 +1208,9 @@ body {
 
 .project-image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 400px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
@@ -1219,7 +1223,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 400px;
   background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
   color: white;
   font-size: 1.2rem;
@@ -1265,8 +1269,8 @@ body {
 
 .category-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
 }
 
 .project-info-grid {

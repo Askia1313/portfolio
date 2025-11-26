@@ -150,6 +150,78 @@ const projectsData = {
         ],
         github: "https://github.com/Askia1313/kalanso.git",
         
+    },
+    csc_media_monitor: {
+        title: "CSC Média Monitor",
+        description: "Plateforme complète de surveillance, d'analyse et de modération des médias burkinabè. Système permettant le scraping automatique d'articles de presse, de posts Facebook et de tweets, avec classification thématique par IA, analyse d'audience multi-plateformes et modération de contenu. Développé en collaboration avec BILA Djamel Franck Chérubin.",
+        technologies: ["Django 5.2.8", "React 18.3.1", "TypeScript 5.8.3", "TailwindCSS 3.4.17", "SQLite 3", "BeautifulSoup4", "Feedparser", "Ollama + Mistral", "TanStack Query", "shadcn/ui", "Recharts", "jsPDF", "xlsx", "Vite 5.4.19"],
+        features: [
+            "🔍 Scraping automatique multi-sources (Sites web, Facebook, Twitter)",
+            "🤖 Classification thématique par IA (Politique, Économie, Sécurité, Santé, Culture, Sport, Autres)",
+            "🛡️ Modération de contenu avec détection de toxicité et désinformation",
+            "📊 Analyse d'audience multi-plateformes (Web, Facebook, Twitter)",
+            "📈 Dashboard interactif avec KPIs et graphiques en temps réel",
+            "📄 Génération de rapports PDF et Excel personnalisables",
+            "⏰ Scraping automatique planifié (horaire, quotidien, hebdomadaire)",
+            "🎯 Score d'influence composite pour classement des médias",
+            "🔔 Système d'alertes pour contenus sensibles",
+            "📡 API REST complète avec documentation Swagger",
+            "🔄 Fallback automatique RSS → HTML en cas d'échec",
+            "💾 Base de données SQLite avec schéma optimisé"
+        ],
+        challenges: [
+            "Intégration de l'IA Ollama + Mistral pour classification et modération",
+            "Gestion du scraping multi-sources avec gestion des erreurs robuste",
+            "Développement d'un système de scoring d'influence composite",
+            "Architecture backend Django avec API REST performante",
+            "Interface React/TypeScript moderne avec 40+ composants shadcn/ui",
+            "Système de planification et d'automatisation du scraping",
+            "Génération dynamique de rapports PDF/Excel avec graphiques",
+            "Optimisation des performances pour traitement de grandes quantités de données"
+        ],
+        images: [
+            "portfolio/assets/images/csc_media/csc1.png",
+            "portfolio/assets/images/csc_media/csc2.png",
+            "portfolio/assets/images/csc_media/csc3.png"
+        ],
+        github: "https://github.com/Askia1313/Media_Scanne.git",
+        demo: ""
+    },
+    agent_ia_rag: {
+        title: "Agent IA - Système RAG pour Procédures Administratives",
+        description: "Agent IA intelligent capable de répondre et de guider les utilisateurs dans les différentes démarches et procédures administratives au Burkina Faso. Le système utilise la technologie RAG (Retrieval-Augmented Generation) pour fournir des réponses précises basées sur des documents officiels et des sources web. Combinant recherche sémantique dans ChromaDB et génération de réponses contextuelles avec Ollama (Mistral), l'agent offre une assistance administrative complète avec citations des sources.",
+        technologies: ["Django 5.2.6", "React 19.1.1", "TypeScript 5.9.3", "TailwindCSS 4.1.16", "ChromaDB 1.3.0", "Ollama 0.6.0", "Mistral", "Sentence Transformers 5.1.2", "PyPDF2 3.0.1", "BeautifulSoup4 4.12.2", "TanStack Query 5.90.6", "shadcn/ui", "Vite 7.1.7", "Docker"],
+        features: [
+            "🔍 Recherche sémantique intelligente dans une base de documents vectorisés",
+            "🤖 Génération de réponses contextuelles avec Ollama (Mistral)",
+            "📄 Traitement automatique de documents PDF et web scraping",
+            "💬 Interface de chat moderne et réactive (mobile, tablette, desktop)",
+            "📚 Citations automatiques des sources utilisées dans les réponses",
+            "🎯 Support multilingue (français principalement)",
+            "⚡ Découpage intelligent en chunks pour de meilleurs résultats",
+            "🧪 Système de tests et évaluation avec 20 questions de test",
+            "📊 Métriques de performance (temps de réponse, précision, pertinence)",
+            "🔒 CORS configuré pour la sécurité",
+            "🐳 Déploiement Docker avec Docker Compose",
+            "📡 API REST complète pour intégration"
+        ],
+        challenges: [
+            "Implémentation du système RAG (Retrieval-Augmented Generation)",
+            "Intégration de ChromaDB pour la base de données vectorielle",
+            "Optimisation des embeddings avec Sentence Transformers",
+            "Découpage intelligent des documents en chunks pertinents",
+            "Génération de réponses contextuelles précises avec Ollama",
+            "Gestion du web scraping et extraction de texte PDF",
+            "Architecture backend Django avec orchestration RAG",
+            "Interface React moderne avec composants shadcn/ui",
+            "Système de tests automatisés avec métriques de performance",
+            "Configuration Docker multi-services (backend, frontend, ChromaDB)"
+        ],
+        images: [
+            "portfolio/assets/images/agent/agent.png"
+        ],
+        github: "https://github.com/Askia1313/Agent_ia.git",
+        demo: ""
     }
 };
 
@@ -238,6 +310,15 @@ function openProjectDetail(projectId) {
                         ${project.features.map(feature => `<li>${feature}</li>`).join('')}
                     </ul>
                 </div>
+                
+                ${project.challenges ? `
+                <div class="project-section">
+                    <h3><i class="fas fa-lightbulb"></i> Défis techniques</h3>
+                    <ul class="feature-list">
+                        ${project.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
+                    </ul>
+                </div>
+                ` : ''}
             </div>
             
             <div class="project-links-detail">

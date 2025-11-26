@@ -184,7 +184,7 @@ const projectsData = {
             "portfolio/assets/images/csc_media/csc2.png",
             "portfolio/assets/images/csc_media/csc3.png"
         ],
-        github: "https://github.com/Askia1313/Media_Scanne.git",
+        github: "https://github.com/Askia1313/Media_Scan.git",
         demo: ""
     },
     agent_ia_rag: {
